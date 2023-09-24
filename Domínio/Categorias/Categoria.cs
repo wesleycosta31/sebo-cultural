@@ -1,5 +1,5 @@
-using Relier.Security.Domain.Users;
 using sebo_cultural.DTOS;
+using sebo_cultural.Enums;
 namespace sebo_cultural.Domínio;
 
 /// <summary>Classe que representa uma categoria de um produto da plataforma.</summary>
@@ -8,7 +8,7 @@ public class Categoria
     /// <summary>Código de identificação da categoria.</summary>
     public int ID { get; set; }
 
-    /// <summary>Tipo da categoria.</summary>
+    /// <summary>Tipo da categoria refente ao produto cadastrado.</summary>
     public string CategoriaTipo { get; set; } = null!;
 
     /// <summary>Tipo do produto.</summary>

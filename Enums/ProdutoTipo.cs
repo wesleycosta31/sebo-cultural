@@ -1,4 +1,6 @@
-namespace Relier.Security.Domain.Users;
+namespace sebo_cultural.Enums;
+
+/// <summary>Enum que representa o tipo de um produto da plataforma.</summary>
 
 /// <summary>Situações para uma conta de usuário da plataforma.</summary>
 public enum ProdutoTipo
@@ -10,5 +12,5 @@ public enum ProdutoTipo
     DiscoDeVinil = 1,
 
     /// <summary>Produto de mídia CD.</summary>
-    CD = 2
+    CD = 2,
 }

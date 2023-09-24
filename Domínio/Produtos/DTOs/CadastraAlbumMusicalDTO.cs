@@ -4,17 +4,13 @@ using sebo_cultural.Enums;
 namespace sebo_cultural.DTOS;
 
 /// <summary>DTO que representa um livro da plataforma.</summary>
-public class CadastraLivroDTO
+public class CadastraAlbumMusicalDTO
 {
-    /// <summary>Título do livro.</summary>
+    /// <summary>Título do album.</summary>
     public string Titulo { get; set; } = null!;
 
-
-    /// <summary>Categoria do produto.</summary>
+    /// <summary>Gênero do album.</summary>
     public Categoria Tema { get; set; } = null!;
-
-    /// <summary>Quantidade de páginas do livro.</summary>
-    public int Paginas { get; set; }
 
     /// <summary>Ano de lançamento do livro.</summary>
     public int AnoLancamento { get; set; }
@@ -31,7 +27,9 @@ public class CadastraLivroDTO
     /// <summary>Editora do livro.</summary>
     public Editora Editora { get; set; } = null!;
 
-    /// <summary>Estado de consevação do livro.</summary>
-    public ProdutoEstado LivroEstado { get; set; }
+    /// <summary>Estado de consevação do album.</summary>
+    public ProdutoEstado AlbumEstado { get; set; }   
 
+    /// <summary>Tipo do produto.</summary>
+    public ProdutoTipo ProdutoTipo { get; set; }
 }

@@ -1,22 +1,22 @@
-using Relier.Security.Domain.Users;
 using sebo_cultural.DTOS;
+using sebo_cultural.Enums;
 
 namespace sebo_cultural.Domínio;
 
-/// <summary>Classe que representa um livro da plataforma.</summary>
+/// <summary>Classe que representa um produto da plataforma.</summary>
 public class Produto
 {
-    /// <summary>Código de identificação do autor.</summary>
+    /// <summary>Código de identificação do produto.</summary>
     public int ID { get; set; }
 
     /// <summary>Título do livro.</summary>
     public string Titulo { get; set; } = null!;
 
     /// <summary>Categoria do produto.</summary>
-    public Categoria Categoria { get; set; } = null!;
+    public Categoria? Categoria { get; set; } = null!;
 
     /// <summary>Quantidade de páginas do livro.</summary>
-    public int? Paginas { get; set; }
+    public int? QtdPaginas { get; set; }
 
     /// <summary>Ano de lançamento do livro.</summary>
     public int? AnoLancamento { get; set; }
@@ -33,26 +33,26 @@ public class Produto
     /// <summary>Editora do livro.</summary>
     public Editora? Editora { get; set; }
 
-    /// <summary>Quantidades unitárias do produto.</summary>
-    public int ProdutoQuantidade { get; set; }
+    /// <summary>Estado de consevação do produto.</summary>
+    public ProdutoEstado ProdutoEstado { get; set; }
 
     /// <summary>Tipo do produto.</summary>
     public ProdutoTipo ProdutoTipo { get; set; }
 
     /// <summary>Construtor com parâmetros.</summary>
     public Produto(int id, string titulo, Categoria categoria, int? paginas, int anoLancamento,
-     int iDAutor, Autor? autor, int iDEditora, Editora editora, int produtoQuantidade, ProdutoTipo produtoTipo)
+     int iDAutor, Autor? autor, int iDEditora, Editora editora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo)
     {
         ID = id;
         Titulo = titulo;
         Categoria = categoria;
-        Paginas = paginas;
+        QtdPaginas = paginas;
         AnoLancamento = anoLancamento;
         IDAutor = iDAutor;
         Autor = autor;
         IDEditora = iDEditora;
         Editora = editora;
-        ProdutoQuantidade = produtoQuantidade;
+        ProdutoEstado = produtoEstado;
         ProdutoTipo = produtoTipo;
     }
 
@@ -62,11 +62,25 @@ public class Produto
     {
         Titulo = dto.Titulo;
         Categoria = dto.Tema;
-        Paginas = dto.Paginas;
+        QtdPaginas = dto.Paginas;
         AnoLancamento = dto.AnoLancamento;
         Autor = dto.Autor;
         Editora = dto.Editora;
-        ProdutoQuantidade = dto.LivroQuantidade;
+        ProdutoEstado = dto.LivroEstado;
         ProdutoTipo = ProdutoTipo.Livro;
     }
+
+    /// <summary>Construtor utilizado no processo de cadastro de um album de música.</summary>
+    /// <param name="dto">DTO do processo de cadastro de livro.</param>
+    public Produto(CadastraAlbumMusicalDTO dto)
+    {
+        Titulo = dto.Titulo;
+        Categoria = dto.Tema;
+        AnoLancamento = dto.AnoLancamento;
+        Autor = dto.Autor;
+        Editora = dto.Editora;
+        ProdutoEstado = dto.AlbumEstado;
+        ProdutoTipo = ProdutoTipo;
+    }
+
 }

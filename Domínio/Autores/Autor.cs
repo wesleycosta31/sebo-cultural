@@ -1,3 +1,4 @@
+using Relier.Security.Domain.Users;
 using sebo_cultural.DTOS;
 namespace sebo_cultural.Domínio;
 
@@ -13,18 +14,20 @@ public class Autor
     /// <summary>Ano de nascimento do autor.</summary>
     public int AnoNascimento { get; set; }
 
-    /// <summary>Coleção de livros do Autor.</summary>
-    public ICollection<Produto>? Produto { get; set; }
+    /// <summary>Código de identificação do produto.</summary>
+    public int IDProduto { get; set; }
 
-    //Passar uma lista de livros
+    /// <summary>Tipo do produto.</summary>
+    public ProdutoTipo ProdutoTipo { get; set; }
 
     /// <summary>Construtor com parâmetros.</summary>
-    public Autor(int id, string nome, int anoNascimento, ICollection<Produto>? produto)
+    public Autor(int id, string nome, int anoNascimento, int iDProduto, ProdutoTipo produtoTipo)
     {
         ID = id;
         Nome = nome;
         AnoNascimento = anoNascimento;
-        Produto = produto;
+        IDProduto = iDProduto;
+        ProdutoTipo = produtoTipo;
     }
 
     /// <summary>Construtor utilizado no processo de cadastro de um autor.</summary>
@@ -33,6 +36,7 @@ public class Autor
     {
         Nome = dto.Nome;
         AnoNascimento = dto.AnoNascimento;
-        Produto = dto.Livro;
+        IDProduto = dto.IDProduto;
+        ProdutoTipo = dto.ProdutoTipo;
     }
 }

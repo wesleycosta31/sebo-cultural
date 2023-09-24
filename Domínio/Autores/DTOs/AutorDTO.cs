@@ -1,3 +1,4 @@
+using Relier.Security.Domain.Users;
 using sebo_cultural.Domínio;
 
 namespace sebo_cultural.DTOS;
@@ -11,7 +12,10 @@ public class AutorDTO
     /// <summary>Ano de nascimento do autor.</summary>
     public int AnoNascimento { get; set; }
 
-    /// <summary>Coleção de livros do Autor.</summary>
-    public ICollection<Produto>? Livro { get; set; }
+    /// <summary>Tipo do produto.</summary>
+    public ProdutoTipo? ProdutoTipo { get; set; }
+
+    /// <summary>Código de identificação do produto.</summary>
+    public int? IDProduto { get; set; }
 
 }

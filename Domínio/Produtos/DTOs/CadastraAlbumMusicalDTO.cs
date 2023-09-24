@@ -10,7 +10,7 @@ public class CadastraAlbumMusicalDTO
     public string Titulo { get; set; } = null!;
 
     /// <summary>Gênero do album.</summary>
-    public Categoria Tema { get; set; } = null!;
+    public Categoria Genero { get; set; } = null!;
 
     /// <summary>Ano de lançamento do livro.</summary>
     public int AnoLancamento { get; set; }
@@ -32,4 +32,16 @@ public class CadastraAlbumMusicalDTO
 
     /// <summary>Tipo do produto.</summary>
     public ProdutoTipo ProdutoTipo { get; set; }
+
+    /// <summary>Custo do produto na aquisição.</summary>
+    public decimal CustoAquisicao { get; set; }
+
+    /// <summary>Valor do produto para venda.</summary>
+    public decimal ValorVenda { get; set; }
+
+    /// <summary>Data da aquisição do produto.</summary>
+    public DateTime DataAquisicao { get; set; }
+
+    /// <summary>Data da venda do produto.</summary>
+    public DateTime DataVenda { get; set; } 
 }

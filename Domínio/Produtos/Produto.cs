@@ -39,9 +39,22 @@ public class Produto
     /// <summary>Tipo do produto.</summary>
     public ProdutoTipo ProdutoTipo { get; set; }
 
+    /// <summary>Custo do produto na aquisição.</summary>
+    public decimal CustoAquisicao { get; set; }
+
+    /// <summary>Valor do produto para venda.</summary>
+    public decimal ValorVenda { get; set; }
+
+    /// <summary>Data da aquisição do produto.</summary>
+    public DateTime DataAquisicao { get; set; }
+
+    /// <summary>Data da venda do produto.</summary>
+    public DateTime DataVenda { get; set; }
+
     /// <summary>Construtor com parâmetros.</summary>
     public Produto(int id, string titulo, Categoria categoria, int? paginas, int anoLancamento,
-     int iDAutor, Autor? autor, int iDEditora, Editora editora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo)
+     int iDAutor, Autor? autor, int iDEditora, Editora editora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo,
+     decimal custoAquisicao, decimal valorVenda, DateTime dataAquisicao, DateTime dataVenda)
     {
         ID = id;
         Titulo = titulo;
@@ -54,6 +67,10 @@ public class Produto
         Editora = editora;
         ProdutoEstado = produtoEstado;
         ProdutoTipo = produtoTipo;
+        CustoAquisicao = custoAquisicao;
+        ValorVenda = valorVenda;
+        DataAquisicao = dataAquisicao;
+        DataVenda = dataVenda;
     }
 
     /// <summary>Construtor utilizado no processo de cadastro de um livro.</summary>
@@ -61,13 +78,17 @@ public class Produto
     public Produto(CadastraLivroDTO dto)
     {
         Titulo = dto.Titulo;
-        Categoria = dto.Tema;
+        Categoria = dto.Genero;
         QtdPaginas = dto.Paginas;
         AnoLancamento = dto.AnoLancamento;
         Autor = dto.Autor;
         Editora = dto.Editora;
         ProdutoEstado = dto.LivroEstado;
-        ProdutoTipo = ProdutoTipo.Livro;
+        ProdutoTipo = dto.ProdutoTipo;
+        CustoAquisicao = dto.CustoAquisicao;
+        ValorVenda = dto.ValorVenda;
+        DataAquisicao = dto.DataAquisicao;
+        DataVenda = dto.DataVenda;
     }
 
     /// <summary>Construtor utilizado no processo de cadastro de um album de música.</summary>
@@ -75,12 +96,16 @@ public class Produto
     public Produto(CadastraAlbumMusicalDTO dto)
     {
         Titulo = dto.Titulo;
-        Categoria = dto.Tema;
+        Categoria = dto.Genero;
         AnoLancamento = dto.AnoLancamento;
         Autor = dto.Autor;
         Editora = dto.Editora;
         ProdutoEstado = dto.AlbumEstado;
-        ProdutoTipo = ProdutoTipo;
+        ProdutoTipo = dto.ProdutoTipo;
+        CustoAquisicao = dto.CustoAquisicao;
+        ValorVenda = dto.ValorVenda;
+        DataAquisicao = dto.DataAquisicao;
+        DataVenda = dto.DataVenda;
     }
 
 }

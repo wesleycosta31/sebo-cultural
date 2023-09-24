@@ -11,7 +11,7 @@ public class CadastraLivroDTO
 
 
     /// <summary>Categoria do produto.</summary>
-    public Categoria Tema { get; set; } = null!;
+    public Categoria Genero { get; set; } = null!;
 
     /// <summary>Quantidade de páginas do livro.</summary>
     public int Paginas { get; set; }
@@ -33,5 +33,20 @@ public class CadastraLivroDTO
 
     /// <summary>Estado de consevação do livro.</summary>
     public ProdutoEstado LivroEstado { get; set; }
+
+    /// <summary>Tipo do produto.</summary>
+    public ProdutoTipo ProdutoTipo { get; set; }
+
+    /// <summary>Custo do produto na aquisição.</summary>
+    public decimal CustoAquisicao { get; set; }
+
+    /// <summary>Valor do produto para venda.</summary>
+    public decimal ValorVenda { get; set; }
+
+    /// <summary>Data da aquisição do produto.</summary>
+    public DateTime DataAquisicao { get; set; }
+
+    /// <summary>Data da venda do produto.</summary>
+    public DateTime DataVenda { get; set; } 
 
 }

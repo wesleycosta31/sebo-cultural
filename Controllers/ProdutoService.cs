@@ -1,15 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using sebo_cultural.Domínio;
+using sebo_cultural.DTOS;
 
 namespace sebo_cultural.Controllers
 {
-    [ApiController]
+    /// <summary>Controller/Service que gerencia a criação, edição e delete de um produto da plataforma.</summary>
+    /// 
     [Route("Produtos")]
+    [ApiController]
     [ApiExplorerSettings(GroupName = "Produtos")]
 
     public class ProdutoService : ControllerBase
     {
-
+        /// <summary>Retorna a lista completa de produtos da plataforma.</summary>
         [HttpGet(Name = "FiltrarProduto")]
         public async Task<ActionResult<Produto>> FiltrarProdutosAsync([FromBody] Produto ivro)
         {
@@ -17,43 +20,68 @@ namespace sebo_cultural.Controllers
             throw new NotImplementedException();
         }
 
-        [HttpGet("{id}", Name = "FiltrarProdutoById")]
-        public async Task<ActionResult<Produto>> FiltrarProdutoByIdAsync([FromRoute(Name = "id")] int id)
+        /// <summary>Retorna produto por ID.</summary>
+        [HttpGet("{id:int}", Name = "FiltrarProdutoById")]
+        public async Task<ActionResult<Produto>> FiltrarProdutoByIdAsync(int id)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpGet("{id}", Name = "FiltrarProdutosByIdAutor")]
-        public async Task<ActionResult<Produto>> FiltrarProdutosByIdAutorAsync([FromRoute(Name = "id")] int id)
+        /// <summary>Retorna produto pelo ID do autor.</summary>
+        [HttpGet("by-autor", Name = "FiltrarProdutosByIdAutor")]
+        public async Task<ActionResult<IEnumerable<Produto>>> FiltrarProdutosByIdAutorAsync(int id)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpPost(Name = "CadastrarProduto")]
-        public async Task<ActionResult<Produto>> CadastrarProdutoAsync([FromBody] Produto Produto)
+        /// <summary>Retorna produto pelo ID da editora.</summary>
+        [HttpGet("by-editora", Name = "FiltrarProdutosByIdEditora")]
+        public async Task<ActionResult<IEnumerable<Produto>>> FiltrarProdutosByIdEditoraAsync(int id)
+        {
+            await Task.Yield();
+            throw new NotImplementedException();
+        }
+        
+        /// <summary>Cadastra um novo livro na plataforma.</summary>
+        [HttpPost(Name = "CadastrarLivro")]
+        public async Task<ActionResult> CadastrarLivroAsync([FromBody] CadastraLivroDTO dto)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpPost(Name = "EditarProduto")]
-        public async Task<ActionResult<Produto>> EditarProdutoAsync([FromBody] Produto Produto)
+        /// <summary>Cadastra um novo album de música na plataforma.</summary>
+        [HttpPost(Name = "CadastrarAlbumDeMusica")]
+        public async Task<ActionResult> CadastrarAlbumAsync([FromBody] CadastraAlbumMusicalDTO dto)
+        {
+            await Task.Yield();
+            throw new NotImplementedException();
+        }
+
+        /// <summary>Edita as informações de um livro da plataforma.</summary>
+        [HttpPut(Name = "EditarLivro")]
+        public async Task<ActionResult<Produto>> EditarProdutoLivroAsync(int id, CadastraLivroDTO dto)
+        {
+            await Task.Yield();
+            throw new NotImplementedException();
+        }
+
+        /// <summary>Edita as informações de um livro da plataforma.</summary>
+        [HttpPut(Name = "EditarAlbumMusical")]
+        public async Task<ActionResult<Produto>> EditarProdutoAlbumDeMusicaAsync(int id, CadastraAlbumMusicalDTO dto)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
         [HttpPost(Name = "RemoverProduto")]
-        public async Task<ActionResult<Produto>> RemoverProdutoAsync([FromBody] Produto Produto)
+        public async Task<ActionResult<Produto>> RemoverProdutoAsync(int id)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
-
-        //Verificar as alterações de Livro para Produto e a criação da nova classe de categorias.
-
     }
 
 

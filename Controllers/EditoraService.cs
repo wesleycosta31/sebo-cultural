@@ -1,57 +1,56 @@
 using Microsoft.AspNetCore.Mvc;
 using sebo_cultural.Domínio;
+using sebo_cultural.DTOS;
 
 namespace sebo_cultural.Controllers
 {
-    [ApiController]
+    /// <summary>Controller/Service que gerencia a criação, edição e delete de editoras da plataforma.</summary>
+    /// 
     [Route("editoras")]
+    [ApiController]
     [ApiExplorerSettings(GroupName = "Editoras")]
 
     public class EditoraService : ControllerBase
     {
-
+        /// <summary>Retorna a lista completa de editoras.</summary>
         [HttpGet(Name = "FiltrarEditora")]
-        public async Task<ActionResult<Editora>> FiltrarLivrosAsync([FromBody] Editora editora)
+        public async Task<ActionResult<IEnumerable<Editora>>> FiltrarLivrosAsync()
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpGet("{id}", Name = "FiltrarEditoraById")]
-        public async Task<ActionResult<Editora>> FiltrarEditoraByIdAsync([FromRoute(Name = "id")] int id)
+        /// <summary>Obtem editora por ID.</summary>
+        [HttpGet("{id:int}", Name = "FiltrarEditoraById")]
+        public async Task<ActionResult<Editora>> FiltrarEditoraByIdAsync(int id)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpGet("{id}", Name = "FiltrarLivrosByIdEditora")]
-        public async Task<ActionResult<Editora>> FiltrarLivrosByIdEditoraAsync([FromRoute(Name = "id")] int id)
-        {
-            await Task.Yield();
-            throw new NotImplementedException();
-        }
-
+        /// <summary>Cadastra uma nova editora na plataforma.</summary>
         [HttpPost(Name = "CadastrarEditora")]
-        public async Task<ActionResult<Editora>> CadastrarEditoraAsync([FromBody] Editora editora)
+        public async Task<ActionResult> CadastrarEditoraAsync([FromBody] EditoraDTO dto)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpPost(Name = "EditarEditora")]
-        public async Task<ActionResult<Editora>> EditarEditoraAsync([FromBody] Editora editora)
+        /// <summary>Edita as informações de uma editora da plataforma.</summary>
+        [HttpPut(Name = "EditarEditora")]
+        public async Task<ActionResult<Editora>> EditarEditoraAsync(int id, EditoraDTO dto)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
-        [HttpPost(Name = "RemoverEditora")]
-        public async Task<ActionResult<Editora>> RemoverEditoraAsync([FromBody] Editora editora)
-        {
+        /// <summary>Remove um autor da plataforma.</summary>
+        [HttpDelete("{id:int}", Name = "RemoverEditora")]
+        public async Task<ActionResult<Editora>> RemoverEditoraAsync(int id)
+        {   
             await Task.Yield();
             throw new NotImplementedException();
         }
-
     }
 
 }

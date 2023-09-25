@@ -1,0 +1,3 @@
+# Desabilitar completamente o erro IDE0060 em C#
+[*.cs]
+dotnet_diagnostic.IDE0060.severity = none

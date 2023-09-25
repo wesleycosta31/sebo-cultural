@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 using sebo_cultural.Domínio;
 using sebo_cultural.DTOS;
 
@@ -12,6 +13,13 @@ namespace sebo_cultural.Controllers
 
     public class EditoraService : ControllerBase
     {
+        private readonly MySqlConnection _connection;
+
+        public EditoraService(MySqlConnection connection)
+        {
+            _connection = connection;
+        }
+        
         /// <summary>Retorna a lista completa de editoras.</summary>
         [HttpGet(Name = "FiltrarEditora")]
         public async Task<ActionResult<IEnumerable<Editora>>> FiltrarLivrosAsync()

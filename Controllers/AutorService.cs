@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 using sebo_cultural.Domínio;
 using sebo_cultural.DTOS;
 
@@ -12,6 +13,13 @@ namespace sebo_cultural.Controllers
 
     public class AutorService : ControllerBase
     {
+        private readonly MySqlConnection _connection;
+
+        public AutorService(MySqlConnection connection)
+        {
+            _connection = connection;
+        }
+
         /// <summary>Retorna a lista completa de autores.</summary>
         [HttpGet(Name = "FiltrarAutor")]
         public async Task<ActionResult<IEnumerable<Produto>>> FiltrarAutoresAsync([FromBody] Autor autor)

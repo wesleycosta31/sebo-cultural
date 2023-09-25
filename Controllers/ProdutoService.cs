@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 using sebo_cultural.Domínio;
 using sebo_cultural.DTOS;
 
@@ -12,6 +13,13 @@ namespace sebo_cultural.Controllers
 
     public class ProdutoService : ControllerBase
     {
+        private readonly MySqlConnection _connection;
+
+        public ProdutoService(MySqlConnection connection)
+        {
+            _connection = connection;
+        }
+
         /// <summary>Retorna a lista completa de produtos da plataforma.</summary>
         [HttpGet(Name = "FiltrarProduto")]
         public async Task<ActionResult<Produto>> FiltrarProdutosAsync([FromBody] Produto ivro)

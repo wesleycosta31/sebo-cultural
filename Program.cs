@@ -1,12 +1,8 @@
 using Microsoft.OpenApi.Models;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
-using Microsoft.OpenApi.Services;
+using MySql.Data.MySqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options => {
@@ -15,6 +11,12 @@ builder.Services.AddCors(options => {
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
     });
+});
+
+builder.Services.AddTransient<MySqlConnection>(_ =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    return new MySqlConnection(connectionString);
 });
 
 // Add services to the container.

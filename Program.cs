@@ -6,19 +6,15 @@ using MySql.Data.MySqlClient;
 using sebo_cultural.Domínio;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCors(options => {
-    options.AddDefaultPolicy(builder => {
+/*builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
         builder.AllowAnyOrigin();
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
     });
-});
-
-builder.Services.AddTransient<MySqlConnection>(_ =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    return new MySqlConnection(connectionString);
-});
+});*/
 
 // Add services to the container.
 builder.Services.AddControllers()
@@ -33,7 +29,9 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen();
+
+/*builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
@@ -41,7 +39,8 @@ builder.Services.AddSwaggerGen(c =>
         Title = "Sebo Cultural",
         Description = "API da plataforma Sebo Cultural."
     });
-});
+});*/
+
 builder.Services.AddFluentValidationRulesToSwagger();
 builder.Services.AddScoped<IRepositorioDeAutorMySql, RepositorioDeAutorMySql>();
 builder.Services.AddScoped<IRepositorioDeEditoraMySql, RepositorioDeEditoraMySql>();
@@ -51,32 +50,29 @@ builder.Services.AddScoped<IRepositorioDeCategoriaMySql, RepositorioDeCategoriaM
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Staging"))
-//{
-// TODO: Remover o Swagger no ambiente de produção (apenas descomentar esse IF).
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Staging"))
+{
+    // TODO: Remover o Swagger no ambiente de produção (apenas descomentar esse IF).
+    app.UseSwagger();
+    app.UseSwaggerUI();
 
-app.UseDeveloperExceptionPage();
-//}
+    //app.UseDeveloperExceptionPage();
+}
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+/*if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
-}
+}*/
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+//app.UseStaticFiles();
 
-app.UseRouting();
+//app.UseRouting();
 
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllers();
 
 app.Run();

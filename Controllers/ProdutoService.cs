@@ -10,7 +10,6 @@ namespace sebo_cultural.Controllers
     [Route("Produtos")]
     [ApiController]
     [ApiExplorerSettings(GroupName = "Produtos")]
-
     public class ProdutoService : ControllerBase
     {
         private readonly IRepositorioDeProdutoMySql _produtoRep;

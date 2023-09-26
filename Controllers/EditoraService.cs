@@ -10,7 +10,6 @@ namespace sebo_cultural.Controllers
     [Route("editoras")]
     [ApiController]
     [ApiExplorerSettings(GroupName = "Editoras")]
-
     public class EditoraService : ControllerBase
     {
         private readonly IRepositorioDeEditoraMySql _editoraRep;

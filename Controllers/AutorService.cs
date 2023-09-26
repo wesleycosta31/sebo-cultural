@@ -10,7 +10,6 @@ namespace sebo_cultural.Controllers
     [Route("autores")]
     [ApiController]
     [ApiExplorerSettings(GroupName = "Autores")]
-
     public class AutorService : ControllerBase
     {
         private readonly IRepositorioDeAutorMySql _autorRep;

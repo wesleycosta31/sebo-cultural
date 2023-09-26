@@ -1,8 +1,6 @@
-using MySql.Data.MySqlClient;
+namespace sebo_cultural.Domínio;
 
-// ...
-
-public class IRepositorioDeAutorMySql
+public interface IRepositorioDeAutorMySql
 {
     
 }

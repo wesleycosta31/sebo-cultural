@@ -13,11 +13,11 @@ namespace sebo_cultural.Controllers
 
     public class ProdutoService : ControllerBase
     {
-        private readonly MySqlConnection _connection;
+        private readonly IRepositorioDeProdutoMySql _produtoRep;
 
-        public ProdutoService(MySqlConnection connection)
+        public ProdutoService(IRepositorioDeProdutoMySql produtoRep)
         {
-            _connection = connection;
+            _produtoRep = produtoRep;
         }
 
         /// <summary>Retorna a lista completa de produtos da plataforma.</summary>

@@ -13,13 +13,13 @@ namespace sebo_cultural.Controllers
 
     public class EditoraService : ControllerBase
     {
-        private readonly MySqlConnection _connection;
+        private readonly IRepositorioDeEditoraMySql _editoraRep;
 
-        public EditoraService(MySqlConnection connection)
+        public EditoraService(IRepositorioDeEditoraMySql editoraRep)
         {
-            _connection = connection;
+            _editoraRep = editoraRep;
         }
-        
+
         /// <summary>Retorna a lista completa de editoras.</summary>
         [HttpGet(Name = "FiltrarEditora")]
         public async Task<ActionResult<IEnumerable<Editora>>> FiltrarLivrosAsync()
@@ -55,7 +55,7 @@ namespace sebo_cultural.Controllers
         /// <summary>Remove um autor da plataforma.</summary>
         [HttpDelete("{id:int}", Name = "RemoverEditora")]
         public async Task<ActionResult<Editora>> RemoverEditoraAsync(int id)
-        {   
+        {
             await Task.Yield();
             throw new NotImplementedException();
         }

@@ -3,6 +3,7 @@ using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using FluentValidation.AspNetCore;
 using System.Reflection;
 using MySql.Data.MySqlClient;
+using sebo_cultural.Domínio;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options => {
@@ -42,8 +43,12 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 builder.Services.AddFluentValidationRulesToSwagger();
+builder.Services.AddScoped<IRepositorioDeAutorMySql, RepositorioDeAutorMySql>();
+builder.Services.AddScoped<IRepositorioDeEditoraMySql, RepositorioDeEditoraMySql>();
+builder.Services.AddScoped<IRepositorioDeProdutoMySql, RepositorioDeProdutoMySql>();
+builder.Services.AddScoped<IRepositorioDeCategoriaMySql, RepositorioDeCategoriaMySql>();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Staging"))

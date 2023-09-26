@@ -13,11 +13,11 @@ namespace sebo_cultural.Controllers
 
     public class AutorService : ControllerBase
     {
-        private readonly MySqlConnection _connection;
+        private readonly IRepositorioDeAutorMySql _autorRep;
 
-        public AutorService(MySqlConnection connection)
+        public AutorService(IRepositorioDeAutorMySql autorRep)
         {
-            _connection = connection;
+            _autorRep = autorRep;
         }
 
         /// <summary>Retorna a lista completa de autores.</summary>

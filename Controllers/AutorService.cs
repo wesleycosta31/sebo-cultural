@@ -9,7 +9,6 @@ namespace sebo_cultural.Controllers
     /// 
     [Route("autores")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "Autores")]
     public class AutorService : ControllerBase
     {
         private readonly IRepositorioDeAutorMySql _autorRep;
@@ -20,7 +19,7 @@ namespace sebo_cultural.Controllers
         }
 
         /// <summary>Retorna a lista completa de autores.</summary>
-        [HttpGet(Name = "FiltrarAutor")]
+        [HttpGet("filtrar-autor")]
         public async Task<ActionResult<IEnumerable<Produto>>> FiltrarAutoresAsync([FromBody] Autor autor)
         {
             await Task.Yield();
@@ -28,15 +27,15 @@ namespace sebo_cultural.Controllers
         }
 
         /// <summary>Obtem autor por ID.</summary>
-        [HttpGet("{id:int}", Name = "FiltrarAutorById")]
-        public async Task<ActionResult<Autor>> FiltrarAutorByIdAsync(int id)
+        [HttpGet("{id}/filtrar-autor")]
+        public async Task<ActionResult<Autor>> FiltrarAutorByIdAsync([FromRoute] int id)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
         /// <summary>Cadastra um novo autor na plataforma.</summary>
-        [HttpPost(Name = "CadastrarAutor")]
+        [HttpPost("cadastrar-autor")]
         public async Task<ActionResult> CadastrarAutorAsync([FromBody] CadastrarAutorDTO dto)
         {
             await Task.Yield();
@@ -44,16 +43,16 @@ namespace sebo_cultural.Controllers
         }
 
         /// <summary>Edita as informações de um autor da plataforma.</summary>
-        [HttpPut(Name = "EditarAutor")]
-        public async Task<ActionResult<Autor>> EditarAutorAsync(int id, CadastrarAutorDTO autor)
+        [HttpPut("{id}/editar-autor")]
+        public async Task<ActionResult<Autor>> EditarAutorAsync([FromRoute] int id, [FromBody] CadastrarAutorDTO autor)
         {
             await Task.Yield();
             throw new NotImplementedException();
         }
 
         /// <summary>Remove um autor da plataforma.</summary>
-        [HttpDelete("{id:int}", Name = "RemoverAutor")]
-        public async Task<ActionResult<Autor>> RemoverAutorAsync(int id)
+        [HttpDelete("{id}/remover-autor")]
+        public async Task<ActionResult<Autor>> RemoverAutorAsync([FromRoute]int id)
         {
             await Task.Yield();
             throw new NotImplementedException();

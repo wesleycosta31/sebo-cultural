@@ -22,16 +22,16 @@ public class Produto
     public int? AnoLancamento { get; set; }
 
     /// <summary>ID do Autor do livro.</summary>
-    public int? IDAutor { get; set; }
+    public int IDAutor { get; set; }
 
     /// <summary>Autor do livro.</summary>
-    public Autor? Autor { get; set; }
+    public Autor Autor { get; set; }
 
     /// <summary>ID da Editora do livro.</summary>
-    public int? IDEditora { get; set; }
+    public int IDEditora { get; set; }
 
     /// <summary>Editora do livro.</summary>
-    public Editora? Editora { get; set; }
+    public Editora Editora { get; set; }
 
     /// <summary>Estado de consevação do produto.</summary>
     public ProdutoEstado ProdutoEstado { get; set; }
@@ -53,7 +53,7 @@ public class Produto
 
     /// <summary>Construtor com parâmetros.</summary>
     public Produto(int id, string titulo, Categoria categoria, int? paginas, int anoLancamento,
-     int iDAutor, Autor? autor, int iDEditora, Editora editora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo,
+     int iDAutor, Autor autor, int iDEditora, Editora editora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo,
      decimal custoAquisicao, decimal valorVenda, DateTime dataAquisicao, DateTime dataVenda)
     {
         ID = id;

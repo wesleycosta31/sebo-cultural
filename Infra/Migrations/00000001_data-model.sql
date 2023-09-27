@@ -2,17 +2,28 @@ create database if not exists `sebo-cultural`;` default character set utf8;
 
 use `sebo-cultural`;
 
--- Cria a tabela para armazenamento dos usuários.
-drop table if exists `user`;
-create table `user`
+-- Cria a tabela para armazenamento dos produtos.
+drop table if exists `produto`;
+create table `produto`
 (
-    `idUser` int unsigned not null auto_increment primary key,
-    `Name` varchar(100) not null,
-    `Email` varchar(100) not null,
-    `Cellphone` varchar (200) null,
-    `State` tinyint unsigned not null,
-    index `idx_user_name` (`Name`, `idUser`, `Email`, `Cellphone`, `State`),
-    index `idx_user_email` (`Email`, `idUser`, `Name`, `Cellphone`, `State`)
+    `idProduto` int unsigned not null auto_increment primary key,
+    `Titulo` varchar(300) null,
+    `Categoria` varchar(100) null,
+    `QtdPaginas` varchar (200) null,
+    `AnoLancamento` int unsigned null,
+    `idAutor` int unsigned not null,
+    `Autor` varchar(100) not null,
+    `idEditora` int unsigned not null,
+    `Editora` varchar(100) not null,
+    `ProdutoEstado` varchar(100) not null,
+    `ProdutoTipo` varchar(100) not null,
+    `CustoAquisicao` decimal not null,
+    `ValorVenda` decimal not null,
+    `DataAquisicao` datetime not null,
+    `DataVenda` datetime not null
+    constraint primary key (`idProduto`),
+    constraint `fk_passport_system_user` foreign key (`idAutor`, `idEditora`)
+        references `user`(`idUser`)
 );
 
 -- Cria a tabela para armazenamento dos perfis dos usuários.

@@ -10,12 +10,9 @@ public class CadastrarAutorDTO
     public string Nome { get; set; } = null!;
 
     /// <summary>Ano de nascimento do autor.</summary>
-    public DateOnly? DataNascimento { get; set; }
+    public DateTime? DataNascimento { get; set; }
 
-    /// <summary>Tipo do produto.</summary>
-    public ProdutoTipo? ProdutoTipo { get; set; }
-
-    /// <summary>Código de identificação do produto.</summary>
-    public int? IDProduto { get; set; }
+    /// <summary>Nacionalidade do autor.</summary>
+    public string Nacionalidade { get; set; } = null!;
 
 }

@@ -12,22 +12,18 @@ public class Autor
     public string Nome { get; set; } = null!;
 
     /// <summary>Ano de nascimento do autor.</summary>
-    public DateOnly? DataNascimento { get; set; }
+    public DateTime? DataNascimento { get; set; }
 
-    /// <summary>Código de identificação do produto.</summary>
-    public int? IDProduto { get; set; }
-
-    /// <summary>Tipo do produto.</summary>
-    public ProdutoTipo? ProdutoTipo { get; set; }
+    /// <summary>Nacionalidade do autor.</summary>
+    public string Nacionalidade { get; set; } = null!;
 
     /// <summary>Construtor com parâmetros.</summary>
-    public Autor(int id, string nome, DateOnly anoNascimento, int iDProduto, ProdutoTipo produtoTipo)
+    public Autor(int id, string nome, DateTime anoNascimento, string nacionalidade)
     {
         ID = id;
         Nome = nome;
         DataNascimento = anoNascimento;
-        IDProduto = iDProduto;
-        ProdutoTipo = produtoTipo;
+        Nacionalidade = nacionalidade;
     }
 
     /// <summary>Construtor utilizado no processo de cadastro de um autor.</summary>
@@ -36,7 +32,6 @@ public class Autor
     {
         Nome = dto.Nome;
         DataNascimento = dto.DataNascimento;
-        IDProduto = dto.IDProduto;
-        ProdutoTipo = dto.ProdutoTipo;  
+        Nacionalidade = dto.Nacionalidade;  
     }
 }

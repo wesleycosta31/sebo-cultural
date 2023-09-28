@@ -12,5 +12,5 @@ public enum ProdutoTipo
     DiscoDeVinil = 1,
 
     /// <summary>Produto de mídia CD.</summary>
-    CD = 2,
+    CD = 2
 }

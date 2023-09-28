@@ -47,6 +47,6 @@ public class CadastraLivroDTO
     public DateTime DataAquisicao { get; set; }
 
     /// <summary>Data da venda do produto.</summary>
-    public DateTime DataVenda { get; set; } 
+    public DateTime DataVenda { get; set; }
 
 }

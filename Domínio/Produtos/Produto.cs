@@ -12,25 +12,28 @@ public class Produto
     /// <summary>Título do livro.</summary>
     public string Titulo { get; set; } = null!;
 
-    /// <summary>Categoria do produto.</summary>
-    public Categoria? Categoria { get; set; } = null!;
+    /// <summary>ID da categoria do produto.</summary>
+    public int IDCategoria { get; set; }
 
-    /// <summary>Quantidade de páginas do livro.</summary>
+    /// <summary>Categoria do produto.</summary>
+    public Categoria Categoria { get; set; } = null!;
+
+    /// <summary>Quantidade de páginas do produto.</summary>
     public int? QtdPaginas { get; set; }
 
-    /// <summary>Ano de lançamento do livro.</summary>
+    /// <summary>Ano de lançamento do produto.</summary>
     public int? AnoLancamento { get; set; }
 
-    /// <summary>ID do Autor do livro.</summary>
+    /// <summary>ID do Autor do produto.</summary>
     public int IDAutor { get; set; }
 
-    /// <summary>Autor do livro.</summary>
+    /// <summary>Autor do produto.</summary>
     public Autor Autor { get; set; }
 
-    /// <summary>ID da Editora do livro.</summary>
+    /// <summary>ID da Editora do produto.</summary>
     public int IDEditora { get; set; }
 
-    /// <summary>Editora do livro.</summary>
+    /// <summary>Editora do produto.</summary>
     public Editora Editora { get; set; }
 
     /// <summary>Estado de consevação do produto.</summary>

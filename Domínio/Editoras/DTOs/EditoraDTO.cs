@@ -9,8 +9,4 @@ public class EditoraDTO
     /// <summary>Nome da editora.</summary>
     public string NomeEditora { get; set; } = null!;
 
-
-    /// <summary>Coleção de livros do Autor.</summary>
-    public ICollection<Produto>? Produto { get; set; }
-
 }

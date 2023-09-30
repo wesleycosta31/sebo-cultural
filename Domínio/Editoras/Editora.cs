@@ -10,16 +10,12 @@ public class Editora
     /// <summary>Nome da editora.</summary>
     public string NomeEditora { get; set; } = null!;
 
-    /// <summary>Coleção de livros do Autor.</summary>
-    public ICollection<Produto>? Livro { get; set; }
-
 
     /// <summary>Construtor com parâmetros.</summary>
     public Editora(int id, string nomeEditora, ICollection<Produto>? livro)
     {
         ID = id;
         NomeEditora = nomeEditora;
-        Livro = livro;
     }
 
     /// <summary>Construtor utilizado no processo de cadastro de uma nova editora.</summary>

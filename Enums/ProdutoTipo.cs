@@ -13,4 +13,7 @@ public enum ProdutoTipo
 
     /// <summary>Produto de mídia CD.</summary>
     CD = 2,
+
+    /// <summary>História em quadrinhos.</summary>
+    HQ = 3
 }

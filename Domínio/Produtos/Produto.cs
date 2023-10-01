@@ -13,10 +13,7 @@ public class Produto
     public string Titulo { get; set; } = null!;
 
     /// <summary>ID da categoria do produto.</summary>
-    public int IDCategoria { get; set; }
-
-    /// <summary>Categoria do produto.</summary>
-    public Categoria Categoria { get; set; } = null!;
+    public int? IDCategoria { get; set; }
 
     /// <summary>Quantidade de páginas do produto.</summary>
     public int? QtdPaginas { get; set; }
@@ -27,14 +24,8 @@ public class Produto
     /// <summary>ID do Autor do produto.</summary>
     public int IDAutor { get; set; }
 
-    /// <summary>Autor do produto.</summary>
-    public Autor Autor { get; set; }
-
     /// <summary>ID da Editora do produto.</summary>
     public int IDEditora { get; set; }
-
-    /// <summary>Editora do produto.</summary>
-    public Editora Editora { get; set; }
 
     /// <summary>Estado de consevação do produto.</summary>
     public ProdutoEstado ProdutoEstado { get; set; }
@@ -61,13 +52,10 @@ public class Produto
     {
         ID = id;
         Titulo = titulo;
-        Categoria = categoria;
         QtdPaginas = paginas;
         AnoLancamento = anoLancamento;
         IDAutor = iDAutor;
-        Autor = autor;
         IDEditora = iDEditora;
-        Editora = editora;
         ProdutoEstado = produtoEstado;
         ProdutoTipo = produtoTipo;
         CustoAquisicao = custoAquisicao;
@@ -81,11 +69,8 @@ public class Produto
     public Produto(CadastraLivroDTO dto)
     {
         Titulo = dto.Titulo;
-        Categoria = dto.Genero;
         QtdPaginas = dto.Paginas;
         AnoLancamento = dto.AnoLancamento;
-        Autor = dto.Autor;
-        Editora = dto.Editora;
         ProdutoEstado = dto.LivroEstado;
         ProdutoTipo = dto.ProdutoTipo;
         CustoAquisicao = dto.CustoAquisicao;
@@ -99,10 +84,7 @@ public class Produto
     public Produto(CadastraAlbumMusicalDTO dto)
     {
         Titulo = dto.Titulo;
-        Categoria = dto.Genero;
         AnoLancamento = dto.AnoLancamento;
-        Autor = dto.Autor;
-        Editora = dto.Editora;
         ProdutoEstado = dto.AlbumEstado;
         ProdutoTipo = dto.ProdutoTipo;
         CustoAquisicao = dto.CustoAquisicao;

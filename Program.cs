@@ -29,9 +29,8 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-/*builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
@@ -39,7 +38,7 @@ builder.Services.AddSwaggerGen();
         Title = "Sebo Cultural",
         Description = "API da plataforma Sebo Cultural."
     });
-});*/
+});
 
 builder.Services.AddFluentValidationRulesToSwagger();
 builder.Services.AddScoped<IRepositorioDeAutorMySql, RepositorioDeAutorMySql>();

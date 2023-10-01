@@ -18,14 +18,8 @@ public class CadastraAlbumMusicalDTO
     /// <summary>Autor do livro.</summary>
     public int IDAutor { get; set; }
 
-    /// <summary>Autor do livro.</summary>
-    public Autor Autor { get; set; } = null!;
-
     /// <summary>ID da Editora do livro.</summary>
     public int IDEditora { get; set; }
-
-    /// <summary>Editora do livro.</summary>
-    public Editora Editora { get; set; } = null!;
 
     /// <summary>Estado de consevação do album.</summary>
     public ProdutoEstado AlbumEstado { get; set; }   

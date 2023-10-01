@@ -11,8 +11,11 @@ public class Categoria
     /// <summary>Tipo da categoria refente ao produto cadastrado.</summary>
     public string CategoriaTipo { get; set; } = null!;
 
+    /// <summary>Enumerado da categoria refente ao produto cadastrado.</summary>
+    public CategoriaProdutoTipo CategoriaProdutoTipo { get; set; }
+
     /// <summary>Construtor com parâmetros.</summary>
-    public Categoria(int id, string categoriaTipo, ProdutoTipo produtoTipo)
+    public Categoria(int id, string categoriaTipo, CategoriaProdutoTipo produtoTipo)
     {
         ID = id;
         CategoriaTipo = categoriaTipo;
@@ -23,5 +26,6 @@ public class Categoria
     public Categoria(CategoriaDTO dto)
     {
         CategoriaTipo = dto.Categoria;
+        CategoriaProdutoTipo = dto.CategoriaProdutoTipo;
     }
 }

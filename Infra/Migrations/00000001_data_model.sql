@@ -9,16 +9,13 @@ create table `produto`
 (
     `idProduto` int unsigned not null auto_increment primary key,
     `Titulo` varchar(300) not null,
-    `idCategoria` int unsigned not null,
-    `Categoria` varchar(100) null,
-    `ProdutoTipo` varchar(100) not null,
-    `QtdPaginas` varchar (200) null,
+    `QtdPaginas` smallint null,
     `AnoLancamento` int unsigned null,
-    `idAutor` int unsigned not null,
-    `Autor` varchar(100) not null,
-    `idEditora` int unsigned not null,
-    `Editora` varchar(100) not null,
     `ProdutoEstado` varchar(100) not null,
+    `idCategoria` int unsigned not null,
+    `idAutor` int unsigned not null,
+    `idEditora` int unsigned not null,
+    `ProdutoTipo` smallint not null,
     `CustoAquisicao` decimal not null,
     `ValorVenda` decimal not null,
     `DataAquisicao` datetime not null,
@@ -49,7 +46,8 @@ drop table if exists `categoria`;
 create table `categoria`
 (
     `idCategoria` int unsigned not null auto_increment primary key,
-    `Categoria` varchar(100) not null
+    `Categoria` varchar(100) not null,
+    `CategoriaProdutoTipo` smallint not null
 );
 
 alter table `produto`

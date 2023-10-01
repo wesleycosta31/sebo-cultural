@@ -6,7 +6,7 @@ namespace sebo_cultural.Domínio;
 public class Autor
 {
     /// <summary>Código de identificação do autor.</summary>
-    public int ID { get; set; }
+    public ushort ID { get; set; }
 
     /// <summary>Nome completo do autor.</summary>
     public string Nome { get; set; } = null!;
@@ -18,7 +18,7 @@ public class Autor
     public string Nacionalidade { get; set; } = null!;
 
     /// <summary>Construtor com parâmetros.</summary>
-    public Autor(int id, string nome, DateTime anoNascimento, string nacionalidade)
+    public Autor(ushort id, string nome, DateTime anoNascimento, string nacionalidade)
     {
         ID = id;
         Nome = nome;

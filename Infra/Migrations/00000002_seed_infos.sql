@@ -1,16 +1,16 @@
 use `sebo-cultural`;
 
 -- Adiciona uma autor.
-insert into `autor`(`Nome`, `DataNascimento`, `Nacionalidade`)
+    insert into `autor`(`Nome`, `DataNascimento`, `Nacionalidade`)
 values('Lucas Silveira', '1983-01-12', 'Brasileiro');
 
 -- Adiciona uma editora.
-insert into `editora`(`Editora`)
+    insert into `editora`(`Editora`)
 values
     ('Nublense');
 
 -- Adiciona categorias para livros.
-insert into `categoria`(`Categoria`, `CategoriaProdutoTipo`)
+    insert into `categoria`(`Categoria`, `CategoriaProdutoTipo`)
 values
     ('Suspense', '0'),
     ('Romance', '0'),
@@ -37,7 +37,9 @@ values
     ('Saúde e Bem-Estar', '0'),
     ('Terror', '0'),
     ('Viagem', '0'),
-    ('Ficção Histórica', '0');
+    ('Ficção Histórica', '0'),
+    ('Literatura Brasileira', '0'),
+    ('Literatura Estrangeira', '0');
 
 -- Adiciona categorias para albuns.
     insert into `categoria` (`Categoria`, `CategoriaProdutoTipo`)
@@ -70,7 +72,7 @@ values
     ('Tropicalia', '1');
 
 -- Adiciona categorias histórias em quadrinhos.
-insert into `categoria` (`Categoria`, `CategoriaProdutoTipo`)
+    insert into `categoria` (`Categoria`, `CategoriaProdutoTipo`)
 values
     ('Super-Heróis', '2'),
     ('Mangá', '2'),

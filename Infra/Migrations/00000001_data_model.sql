@@ -10,25 +10,25 @@ create table `produto`
     `idProduto` int unsigned not null auto_increment primary key,
     `Titulo` varchar(300) not null,
     `QtdPaginas` smallint null,
-    `AnoLancamento` int unsigned null,
+    `DataLancamento` date unsigned null,
     `ProdutoEstado` varchar(100) not null,
-    `idCategoria` int unsigned not null,
-    `idAutor` int unsigned not null,
-    `idEditora` int unsigned not null,
-    `ProdutoTipo` smallint not null,
+    `idCategoria` smallint unsigned not null,
+    `idAutor` smallint unsigned not null,
+    `idEditora` smallint unsigned not null,
+    `ProdutoTipo` smallint unsigned not null,
     `CustoAquisicao` decimal not null,
     `ValorVenda` decimal not null,
-    `DataAquisicao` datetime not null,
-    `DataVenda` datetime not null
+    `DataAquisicao` date not null,
+    `DataVenda` date not null
 );
 
 -- Cria a tabela para armazenamento dos autores da plataforma.
 drop table if exists `autor`;
 create table `autor`
 (
-    `idAutor` int unsigned not null auto_increment primary key,
+    `idAutor` smallint unsigned not null auto_increment primary key,
     `Nome` varchar(100) not null,
-    `DataNascimento` datetime null,
+    `DataNascimento` date null,
     `Nacionalidade` varchar(30) not null
 );
 
@@ -36,7 +36,7 @@ create table `autor`
 drop table if exists `editora`;
 create table `editora`
 (
-    `idEditora` int unsigned not null auto_increment primary key,
+    `idEditora` smallint unsigned not null auto_increment primary key,
     `Editora` varchar(100) not null
 );
 
@@ -45,7 +45,7 @@ create table `editora`
 drop table if exists `categoria`;
 create table `categoria`
 (
-    `idCategoria` int unsigned not null auto_increment primary key,
+    `idCategoria` smallint unsigned not null auto_increment primary key,
     `Categoria` varchar(100) not null,
     `CategoriaProdutoTipo` smallint not null
 );

@@ -6,7 +6,7 @@ namespace sebo_cultural.Domínio;
 public class Categoria
 {
     /// <summary>Código de identificação da categoria.</summary>
-    public int ID { get; set; }
+    public ushort ID { get; set; }
 
     /// <summary>Tipo da categoria refente ao produto cadastrado.</summary>
     public string CategoriaTipo { get; set; } = null!;
@@ -15,7 +15,7 @@ public class Categoria
     public CategoriaProdutoTipo CategoriaProdutoTipo { get; set; }
 
     /// <summary>Construtor com parâmetros.</summary>
-    public Categoria(int id, string categoriaTipo, CategoriaProdutoTipo produtoTipo)
+    public Categoria(ushort id, string categoriaTipo, CategoriaProdutoTipo produtoTipo)
     {
         ID = id;
         CategoriaTipo = categoriaTipo;

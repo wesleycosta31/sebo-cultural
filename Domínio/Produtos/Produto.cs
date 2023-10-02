@@ -12,26 +12,17 @@ public class Produto
     /// <summary>Título do livro.</summary>
     public string Titulo { get; set; } = null!;
 
-    /// <summary>Categoria do produto.</summary>
-    public Categoria? Categoria { get; set; } = null!;
+    /// <summary>Ano de lançamento do produto.</summary>
+    public DateTime? DataLancamento { get; set; }
 
-    /// <summary>Quantidade de páginas do livro.</summary>
-    public int? QtdPaginas { get; set; }
+    /// <summary>ID do Autor do produto.</summary>
+    public ushort? IDAutor { get; set; }
 
-    /// <summary>Ano de lançamento do livro.</summary>
-    public int? AnoLancamento { get; set; }
+    /// <summary>ID da categoria do produto.</summary>
+    public ushort? IDCategoria { get; set; }
 
-    /// <summary>ID do Autor do livro.</summary>
-    public int IDAutor { get; set; }
-
-    /// <summary>Autor do livro.</summary>
-    public Autor Autor { get; set; }
-
-    /// <summary>ID da Editora do livro.</summary>
-    public int IDEditora { get; set; }
-
-    /// <summary>Editora do livro.</summary>
-    public Editora Editora { get; set; }
+    /// <summary>ID da Editora do produto.</summary>
+    public ushort? IDEditora { get; set; }
 
     /// <summary>Estado de consevação do produto.</summary>
     public ProdutoEstado ProdutoEstado { get; set; }
@@ -52,19 +43,16 @@ public class Produto
     public DateTime DataVenda { get; set; }
 
     /// <summary>Construtor com parâmetros.</summary>
-    public Produto(int id, string titulo, Categoria categoria, int? paginas, int anoLancamento,
-     int iDAutor, Autor autor, int iDEditora, Editora editora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo,
+    public Produto(int id, string titulo, DateTime? dataLancamento, ushort? iDAutor,
+     ushort? iDCategoria, ushort? iDEditora, ProdutoEstado produtoEstado, ProdutoTipo produtoTipo,
      decimal custoAquisicao, decimal valorVenda, DateTime dataAquisicao, DateTime dataVenda)
     {
         ID = id;
         Titulo = titulo;
-        Categoria = categoria;
-        QtdPaginas = paginas;
-        AnoLancamento = anoLancamento;
+        DataLancamento = dataLancamento;
         IDAutor = iDAutor;
-        Autor = autor;
+        IDCategoria = iDCategoria;
         IDEditora = iDEditora;
-        Editora = editora;
         ProdutoEstado = produtoEstado;
         ProdutoTipo = produtoTipo;
         CustoAquisicao = custoAquisicao;
@@ -78,11 +66,10 @@ public class Produto
     public Produto(CadastraLivroDTO dto)
     {
         Titulo = dto.Titulo;
-        Categoria = dto.Genero;
-        QtdPaginas = dto.Paginas;
-        AnoLancamento = dto.AnoLancamento;
-        Autor = dto.Autor;
-        Editora = dto.Editora;
+        DataLancamento = dto.DataLancamento;
+        IDAutor = dto.IDAutor;
+        IDCategoria = dto.IDCategoria;
+        IDEditora = dto.IDEditora;
         ProdutoEstado = dto.LivroEstado;
         ProdutoTipo = dto.ProdutoTipo;
         CustoAquisicao = dto.CustoAquisicao;
@@ -96,10 +83,7 @@ public class Produto
     public Produto(CadastraAlbumMusicalDTO dto)
     {
         Titulo = dto.Titulo;
-        Categoria = dto.Genero;
-        AnoLancamento = dto.AnoLancamento;
-        Autor = dto.Autor;
-        Editora = dto.Editora;
+        DataLancamento = dto.DataLancamento;
         ProdutoEstado = dto.AlbumEstado;
         ProdutoTipo = dto.ProdutoTipo;
         CustoAquisicao = dto.CustoAquisicao;

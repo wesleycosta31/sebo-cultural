@@ -4,6 +4,7 @@ using FluentValidation.AspNetCore;
 using System.Reflection;
 using MySql.Data.MySqlClient;
 using sebo_cultural.Domínio;
+using sebo_cultural.Infra.Repositorios.MySQL;
 
 var builder = WebApplication.CreateBuilder(args);
 /*builder.Services.AddCors(options =>

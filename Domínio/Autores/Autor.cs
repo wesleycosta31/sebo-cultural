@@ -32,6 +32,6 @@ public class Autor
     {
         Nome = dto.Nome;
         DataNascimento = dto.DataNascimento;
-        Nacionalidade = dto.Nacionalidade;  
+        Nacionalidade = dto.Nacionalidade;
     }
 }

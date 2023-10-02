@@ -12,12 +12,8 @@ public enum ProdutoTipo
     DiscoDeVinil = 1,
 
     /// <summary>Produto de mídia CD.</summary>
-<<<<<<< HEAD
-    CD = 2
-=======
     CD = 2,
 
     /// <summary>História em quadrinhos.</summary>
     HistoriaEmQuadrinho = 3
->>>>>>> 09ac13d03999ac2be97a301f840c947c2177b47b
 }

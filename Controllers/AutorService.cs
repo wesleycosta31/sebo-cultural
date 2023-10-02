@@ -20,7 +20,7 @@ namespace sebo_cultural.Controllers
 
         /// <summary>Retorna a lista completa de autores.</summary>
         [HttpGet("filtrar-autor")]
-        public async Task<ActionResult<IEnumerable<Produto>>> FiltrarAutoresAsync([FromBody] Autor autor)
+        public async Task<ActionResult<ResultadoPaginado<Autor>>> FiltrarAutoresAsync([FromBody] FiltrarAutorDTO autor)
         {
             await Task.Yield();
             throw new NotImplementedException();

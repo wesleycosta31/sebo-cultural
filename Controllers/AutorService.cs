@@ -28,10 +28,13 @@ namespace sebo_cultural.Controllers
 
         /// <summary>Obtem autor por ID.</summary>
         [HttpGet("{id}/filtrar-autor")]
-        public async Task<ActionResult<Autor>> FiltrarAutorByIdAsync([FromRoute] int id)
+        public async Task<ActionResult<Autor>> FiltrarAutorByIdAsync([FromRoute] ushort id)
         {
-            await Task.Yield();
-            throw new NotImplementedException();
+            var autor = await _autorRep.ObterAutorByIDAsync(id);
+            if (autor == null)
+                return NotFound();
+            
+            return autor;
         }
 
         /// <summary>Cadastra um novo autor na plataforma.</summary>

@@ -9,8 +9,7 @@ create table `produto`
 (
     `idProduto` int unsigned not null auto_increment primary key,
     `Titulo` varchar(300) not null,
-    `QtdPaginas` smallint null,
-    `DataLancamento` date unsigned null,
+    `DataLancamento` date null,
     `ProdutoEstado` varchar(100) not null,
     `idCategoria` smallint unsigned not null,
     `idAutor` smallint unsigned not null,

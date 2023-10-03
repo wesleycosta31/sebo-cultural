@@ -2,7 +2,7 @@ use `sebo-cultural`;
 
 -- Adiciona uma autor.
     insert into `autor`(`Nome`, `DataNascimento`, `Nacionalidade`)
-values('Lucas Silveira', '1983-01-12', 'Brasileiro');
+values('Agatha Christie', '1890-09-15', 'Britânica');
 
 -- Adiciona uma editora.
     insert into `editora`(`Editora`)

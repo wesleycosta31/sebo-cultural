@@ -1,3 +1,4 @@
+using System.Data.Common;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using sebo_cultural.Domínio;
@@ -54,9 +55,26 @@ namespace sebo_cultural.Infra.Repositorios.MySQL
             await con.OpenAsync();
             cmd.CommandText = cmdStr;
 
-            await cmd.ExecuteReaderAsync();
+            await using (var dr = await cmd.ExecuteReaderAsync())
+            {
+                if (dr.HasRows && await dr.ReadAsync())
+                    autor = DataReaderToAutor(dr);
+            }
 
             return autor;
         }
+
+        private static Autor DataReaderToAutor(DbDataReader dr)
+        {
+            return new Autor
+            (
+        
+                Convert.ToUInt16(dr["idAutor"]),
+                dr["Nome"].ToString()!,
+                Convert.ToDateTime(dr["DataNascimento"]),
+                dr["Nacionalidade"].ToString()!
+            );
+        }
+
     }
 }

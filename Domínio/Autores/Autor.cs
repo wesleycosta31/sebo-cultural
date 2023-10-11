@@ -12,7 +12,7 @@ public class Autor
     public string Nome { get; set; } = null!;
 
     /// <summary>Ano de nascimento do autor.</summary>
-    public DateTime? DataNascimento { get; set; }
+    public DateTime DataNascimento { get; set; }
 
     /// <summary>Nacionalidade do autor.</summary>
     public string Nacionalidade { get; set; } = null!;

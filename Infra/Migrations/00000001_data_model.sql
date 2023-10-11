@@ -27,7 +27,7 @@ create table `autor`
 (
     `idAutor` smallint unsigned not null auto_increment primary key,
     `Nome` varchar(100) not null,
-    `DataNascimento` date null,
+    `DataNascimento` date not null,
     `Nacionalidade` varchar(30) not null
 );
 

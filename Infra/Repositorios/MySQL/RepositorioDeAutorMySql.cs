@@ -37,25 +37,25 @@ namespace sebo_cultural.Infra.Repositorios.MySQL
         public async Task<Autor> ObterAutorByIDAsync(ushort iDAutor)
         {
             await using var con = new MySqlConnection(_conString);
-            await using var cmd = new MySqlCommand(string.Empty, con);
+            await using var cmd = new MySqlCommand("", con);
 
             var cmdStr = @"select
                             atr.idAutor,
                             atr.Nome,
                             atr.DataNascimento,
-                            atr.Nacionalidade,
+                            atr.Nacionalidade
                         from autor atr
                         where
                             atr.idAutor = @iDAutor;";
 
-            cmd.Parameters.AddWithValue("iDautor", iDAutor);
+            cmd.Parameters.AddWithValue("iDAutor", iDAutor);
 
             Autor autor = null!;
 
             await con.OpenAsync();
             cmd.CommandText = cmdStr;
 
-            await using (var dr = await cmd.ExecuteReaderAsync())
+            using (var dr = await cmd.ExecuteReaderAsync())
             {
                 if (dr.HasRows && await dr.ReadAsync())
                     autor = DataReaderToAutor(dr);
@@ -66,15 +66,15 @@ namespace sebo_cultural.Infra.Repositorios.MySQL
 
         private static Autor DataReaderToAutor(DbDataReader dr)
         {
+            ushort idAutor = Convert.ToUInt16(dr["idAutor"]);
+
             return new Autor
             (
-        
-                Convert.ToUInt16(dr["idAutor"]),
+                idAutor,
                 dr["Nome"].ToString()!,
                 Convert.ToDateTime(dr["DataNascimento"]),
                 dr["Nacionalidade"].ToString()!
             );
         }
-
     }
 }

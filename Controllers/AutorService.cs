@@ -20,7 +20,7 @@ namespace sebo_cultural.Controllers
 
         /// <summary>Retorna a lista completa de autores.</summary>
         [HttpGet("filtrar-autor")]
-        public async Task<ActionResult<ResultadoPaginado<Autor>>> FiltrarAutoresAsync([FromBody] FiltrarAutorDTO autor)
+        public async Task<ActionResult<Autor>> FiltrarAutoresAsync() // Criar dto de paginação para retornar autores.
         {
             await Task.Yield();
             throw new NotImplementedException();
@@ -28,7 +28,7 @@ namespace sebo_cultural.Controllers
 
         /// <summary>Obtem autor por ID.</summary>
         [HttpGet("{id}/filtrar-autor")]
-        public async Task<ActionResult<Autor>> FiltrarAutorByIdAsync([FromRoute] ushort id)
+        public async Task<ActionResult<Autor>> FiltrarAutorByIdAsync([FromRoute] uint id)
         {
             var autor = await _autorRep.ObterAutorByIDAsync(id);
             if (autor == null)
